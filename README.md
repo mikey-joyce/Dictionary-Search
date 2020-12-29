@@ -4,18 +4,29 @@
  
  Ex)
    Input)
+   
      Size of Word: 5
+     
      Amount of Letters to Input: 3
+     
      Index 0: a
+     
      Index 1: p
+     
      Index 4: e
    
    Output)
+   
      0: a
+     
      1: p
+     
      4: e
+     
      apace
+     
      Apple
+     
      Apure
  
 # Running Algorithm
