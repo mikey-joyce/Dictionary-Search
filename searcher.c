@@ -50,38 +50,40 @@ int main(void){
   fPtr=NULL;
 
   //get required data (next 13 lines of code)
-  int flag=0, desiredSize=0, arraySize=0;
+  int flag=1, desiredSize=0, arraySize=0;
   Node *myList=NULL;
 
-  printf("Enter 1 to make an entry, enter anything else to quit:\n");
-  scanf("%d", &flag);
+  while(flag==1){
+    printf("Enter 1 to make an entry, enter anything else to quit:\n");
+    scanf("%d", &flag);
 
-  if(flag==1){
-    printf("What is the desired size of the word?\n");
-    scanf("%d", &desiredSize);
+    if(flag==1){
+      printf("What is the desired size of the word?\n");
+      scanf("%d", &desiredSize);
 
-    printf("How many letters will you input?\n");
-    scanf("%d", &arraySize);
+      printf("How many letters will you input?\n");
+      scanf("%d", &arraySize);
 
-    //allocate memory for my array of nodes
-    myList = malloc(sizeof(Node)*arraySize);
+      //allocate memory for my array of nodes
+      myList = malloc(sizeof(Node)*arraySize);
 
-    //populate the array of nodes
-    for(int i=0; i<arraySize; i++){
-      myList[i] = getUserInput();
-    }
-  }
-
-  //if myList exists
-  if(myList!=NULL){
-    //loop through the list of nodes and print out the data for each one
-    for(int i=0; i<arraySize; i++){
-      printf("%d: %c\n", myList[i].index, myList[i].letter);
+      //populate the array of nodes
+      for(int i=0; i<arraySize; i++){
+        myList[i] = getUserInput();
+      } 
     }
 
-    //search the dictionary and free the list
-    searchDictionary(myList, arraySize, dictionary, lines, desiredSize);
-    free(myList);
+    //if myList exists
+    if(myList!=NULL){
+      //loop through the list of nodes and print out the data for each one
+      for(int i=0; i<arraySize; i++){
+        printf("%d: %c\n", myList[i].index, myList[i].letter);
+      }
+
+      //search the dictionary and free the list
+      searchDictionary(myList, arraySize, dictionary, lines, desiredSize);
+      free(myList);
+    }
   }
 
   //free dictionary
